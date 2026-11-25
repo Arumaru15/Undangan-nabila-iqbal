@@ -40,15 +40,18 @@ svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stro
 .tl{top:-24px;left:-24px}.br{bottom:-24px;right:-24px;transform:rotate(180deg)}.tr{top:-24px;right:-24px;transform:scaleX(-1)}.bl{bottom:-24px;left:-24px;transform:scaleY(-1)}
 
 /* ---------- COVER / AMPLOP ---------- */
-#cover{position:fixed;inset:0;z-index:50;background:#FBF8F3;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:40px 20px;text-align:center;transition:opacity .7s}
+#cover{position:fixed;inset:0;z-index:50;background:#FBF8F3;overflow-x:hidden;overflow-y:auto;display:flex;flex-direction:column;align-items:center;justify-content:safe center;padding:32px 20px 36px;text-align:center;transition:opacity .7s}
+#cover.zoom{overflow:hidden}
+#cover .corner{width:clamp(110px,22vw,220px)}#cover .tl{top:-34px;left:-34px}#cover .br{bottom:-34px;right:-34px}
+.ctop,.stage,.cbot{flex-shrink:0}.ctop{margin-bottom:24px}
 #cover.gone{opacity:0;pointer-events:none}
 #cover .corner{transition:opacity .6s}
 #cover.s3 .corner{opacity:0}
 .ctop,.cbot{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;transition:opacity .5s,transform .5s}
 .s1 .ctop{opacity:0;transform:translateY(-18px)}.s1 .cbot{opacity:0;transform:translateY(18px)}
-.ctop h1{font-size:clamp(52px,12vw,84px)}
+.ctop h1{font-size:clamp(46px,11vw,76px);line-height:1.08}
 .date{font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:.3em;color:var(--goldt)}
-.stage{position:relative;z-index:2;width:300px;height:200px;margin:84px 0 6px;perspective:1400px}
+.stage{position:relative;z-index:2;width:300px;height:200px;margin:0 0 30px;perspective:1400px}
 .env{position:absolute;inset:0;animation:floatY 5s ease-in-out infinite}
 .s1 .env{animation:none}
 .env-back{position:absolute;inset:0;background:#E6DBC5;border-radius:8px;box-shadow:0 26px 50px rgba(47,62,58,.2)}
@@ -81,7 +84,7 @@ svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stro
 .dark{background:var(--sage);color:#fff}.dark:hover{background:#B8903F}
 .line{border-color:#B8903F;color:var(--goldt);background:transparent}.line:hover{background:var(--sage);border-color:var(--sage);color:#fff}
 .goldb{background:#E2C98F;color:var(--deep)}.goldb:hover{background:#fff}
-#openBtn{animation:pulse 2.2s infinite;margin-top:6px}
+#openBtn{animation:pulse 2.2s infinite;margin-top:14px}
 
 /* ---------- SITE ---------- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;overflow:hidden;background:#1F2A27;padding:40px 24px 112px}
@@ -241,7 +244,8 @@ textarea{resize:vertical;min-height:110px}
 #musicBtn.on{animation:spin 4s linear infinite;background:#B8903F}
 #musicBtn .off-i{display:block}#musicBtn .on-i{display:none}#musicBtn.on .off-i{display:none}#musicBtn.on .on-i{display:block}
 #musicBtn:focus-visible{outline:2px solid #B8903F;outline-offset:3px}
-@media(max-width:420px){.nav button{min-width:52px;padding:6px 4px}.stage{transform:scale(.92)}}
+@media(max-width:420px){.nav button{min-width:52px;padding:6px 4px}}
+@media(max-height:700px){#cover{padding:20px 16px 24px}.ctop{margin-bottom:16px}.ctop h1{font-size:clamp(40px,10vw,60px)}.stage{margin-bottom:20px}.cbot .guest{font-size:24px}#openBtn{margin-top:10px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hu,.rv.rv,.rv .w{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;stroke-dashoffset:0!important}}
 </style>
 </head>
